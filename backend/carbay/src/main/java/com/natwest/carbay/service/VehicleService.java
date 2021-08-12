@@ -1,8 +1,8 @@
 package com.natwest.carbay.service;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.natwest.carbay.domain.Vehicle;
 import com.natwest.carbay.repo.VehicleRepo;
 
@@ -29,6 +29,9 @@ public class VehicleService {
 	}
 	
 	// READ
+	public List<Vehicle> readAllVehicle() {
+		return this.repo.findAll();
+	}
 	
 	// UPDATE
 	
