@@ -1,6 +1,8 @@
 package com.natwest.carbay.service;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.natwest.carbay.domain.Vehicle;
@@ -64,5 +66,9 @@ public class VehicleService {
 	}
 	
 	// Search for a vehicle by id
-	
+	public Vehicle searchVehicle(Long id) {
+		
+		Optional<Vehicle> schVehicle = this.repo.findById(id);
+		return schVehicle.get();
+	}
 }

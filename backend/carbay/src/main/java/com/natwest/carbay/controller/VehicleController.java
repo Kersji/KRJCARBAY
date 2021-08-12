@@ -64,6 +64,10 @@ public class VehicleController {
 		}
 		
 		// Search for a vehicle by id
-		
+		@GetMapping("/searchVehicle/{id}")
+		public ResponseEntity<Vehicle> searchVehicle(@PathVariable Long id) {
+			return new ResponseEntity<Vehicle> (this.service.searchVehicle(id), 
+					HttpStatus.OK);	
+		}
 	
 }
