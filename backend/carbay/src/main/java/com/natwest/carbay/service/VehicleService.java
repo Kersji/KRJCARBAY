@@ -59,6 +59,9 @@ public class VehicleService {
 	}	
 	
 	// DELETE
+	public void deleteVehicle(Long id) {
+		this.repo.deleteById(id);
+	}
 	
 	// Search for a vehicle by id
 	
