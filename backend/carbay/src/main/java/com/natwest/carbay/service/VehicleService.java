@@ -34,6 +34,29 @@ public class VehicleService {
 	}
 	
 	// UPDATE
+	public Vehicle updateVehicle(Long id, Vehicle vehicle) {
+		
+		Vehicle saveVehicle;
+			
+		// Retrieve vehicle to be updated by id
+		Vehicle updVehicle = this.repo.getById(id);
+
+		// Set updated fields
+		updVehicle.setRegistration_number(vehicle.getRegistration_number());
+		updVehicle.setMake(vehicle.getMake());
+		updVehicle.setModel(vehicle.getModel());
+		updVehicle.setColour(vehicle.getColour());
+		updVehicle.setMileage(vehicle.getMileage());
+		updVehicle.setEngine_size(vehicle.getEngine_size());
+		updVehicle.setRegistration_date(vehicle.getRegistration_date());
+		updVehicle.setFuel_type(vehicle.getFuel_type());
+		updVehicle.setGearbox_type(vehicle.getGearbox_type());
+		updVehicle.setBody_type(vehicle.getBody_type());
+
+		//Save changes to the database
+		saveVehicle = this.repo.save(updVehicle);
+		return saveVehicle;
+	}	
 	
 	// DELETE
 	

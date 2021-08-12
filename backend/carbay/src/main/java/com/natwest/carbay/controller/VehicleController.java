@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,6 +47,13 @@ public class VehicleController {
 		}
 		
 		// UPDATE
+		@PatchMapping("/updateVehicle/{id}")
+		public ResponseEntity<Vehicle> updateVehicle(@PathVariable Long id,
+				@RequestBody Vehicle vehicle) {
+			
+			return new ResponseEntity<Vehicle> (this.service.updateVehicle(id, vehicle), 
+					HttpStatus.ACCEPTED);
+		}
 		
 		// DELETE
 		
