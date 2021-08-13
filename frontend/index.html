@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarBay</title>
+
+    <!-- Bootstrap CSS link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <div class="container">
+        <br/>
+        <h2 class="text-center"><b>CARBAY - BEST DEALS ON CARS</b></h2>
+        <br/>  <br/>
+        
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#vehicleModal" data-bs-whatever="search">Search Vehicle</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#vehicleModal" data-bs-whatever="add">Add Vehicle</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#vehicleModal" data-bs-whatever="amend">Amend Vehicle</button>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#vehicleModal" data-bs-whatever="remove">Remove Vehicle</button>
+                
+        <!-- Display user information -->
+        <br/> <br/>
+        <div id="displayInfoH"> </div>
+        
+        <!-- Search Modal -->
+        <div class="modal fade" id="vehicleModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="vehicleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 class="modal-title" id="vehicleModalLabel"> <b>Vehicle Information</b></h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" id="closeVehicleX" aria-label="Close"></button>
+              </div>
+
+              <!-- Display user information -->
+              <br/>
+              <div class="text-center" id="displayInfo"> </div>
+              
+              <div class="modal-body">
+                <form>
+                  
+                  <div class="mb-3">
+                    <label for="vehicleId" class="col-form-label"> <b>Vehicle Id</b></label>
+                    <input type="text" class="form-control" id="vehicleId" placeholder="Please enter vehicle id to => Search / Amend / Remove">                    
+                  </div>
+                  
+                  <div class="mb-3">
+                    <label for="registrationNumber" class="col-form-label"><b>Registration Number</b></label>
+                    <input type="text" class="form-control" id="registrationNumber" placeholder="Please enter registration number of the vehicle">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="make" class="col-form-label"><b>Make</b></label>
+                    <input type="text" class="form-control" id="make" placeholder="Please enter make of the vehicle">
+                  </div>
+                  
+                  <div class="mb-3">
+                    <label for="model" class="col-form-label"><b>Model</b></label>
+                    <input type="text" class="form-control" id="model" placeholder="Please enter model of the vehicle">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="colour" class="col-form-label"><b>Colour</b></label>
+                    <input type="text" class="form-control" id="colour" placeholder="Please enter colour of the vehicle">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="mileage" class="col-form-label"><b>Mileage</b></label>
+                    <input type="text" class="form-control" id="mileage" placeholder="Please enter mileage of the vehicle">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="engineSize" class="col-form-label"><b>Engine Size</b></label>
+                    <input type="text" class="form-control" id="engineSize" placeholder="Please enter engine size of the vehicle">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="registrationDate" class="col-form-label"><b>Registration Date</b></label>
+                    <input type="text" class="form-control" id="registrationDate" placeholder="Please enter registration date of the vehicle">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="fuelType" class="col-form-label"><b>Fuel Type</b></label>
+                    <input type="text" class="form-control" id="fuelType" placeholder="Please enter fuel type of the vehicle">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="gearboxType" class="col-form-label"><b>Gearbox Type</b></label>
+                    <input type="text" class="form-control" id="gearboxType" placeholder="Please enter gearbox type of the vehicle">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="bodyType" class="col-form-label"><b>Body Type</b></label>
+                    <input type="text" class="form-control" id="bodyType" placeholder="Please enter body type of the vehicle">
+                  </div>
+                     
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="closeVehicle">Close</button>
+                <button type="button" class="btn btn-success" id="search">Search Vehicle</button>
+                <button type="button" class="btn btn-primary" id="add">Add Vehicle</button>
+                <button type="button" class="btn btn-primary" id="amend">Amend Vehicle</button>
+                <button type="button" class="btn btn-danger" id="remove">Remove Vehicle</button>
+                <button type="button" class="btn btn-success" id="clear">Clear Display</button>
+              </div>
+            </div>
+          </div>
+        </div>
+       
+        <br/>  
+
+        <div class="container" id="dataContainer">
+
+          <h2> <b>List of Vehicles</b> </h2>
+
+          <div class="container" id="cardList">              
+          </div>
+
+        </div>    
+
+    </div>
+    <!-- Bootstarp javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <!-- Axios javascript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <!-- Index javascript -->
+    <script type="text/JavaScript" src="./JS/index.js"><</script>
+
+</body>
+</html>
